@@ -34,6 +34,7 @@ const TeamSection = dynamic(() => import("@/components/TeamSection"), {
 
 const PartnersSection = dynamic(() => import("@/components/PartnersSection"), {
   loading: () => <LoadingSpinner />,
+  ssr: false,
 });
 
 const MemoriesSection = dynamic(() => import("@/components/MemoriesSection"), {

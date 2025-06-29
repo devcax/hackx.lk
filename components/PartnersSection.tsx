@@ -76,31 +76,28 @@ export default function PartnersSection() {
         </motion.div>
 
         {/* Partners Logo Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {partners.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
-              className="group relative"
-            >
-              <div className="relative flex items-center justify-center h-28 p-6 bg-cosmic-navy/30 backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-300 hover:bg-cosmic-navy/50 hover:border-space-gradient-start/50">
+        <div className="group w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-12 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]">
+            {partners.map((partner, index) => (
+              <li key={index}>
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-w-full max-h-full object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0"
+                  className="max-h-20"
                 />
-                <div className="absolute inset-0 bg-cosmic-deep/60 rounded-2xl group-hover:bg-transparent transition-all duration-300" />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </li>
+            ))}
+            {partners.map((partner, index) => (
+              <li key={`clone-${index}`} aria-hidden="true">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-20"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
