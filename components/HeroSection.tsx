@@ -120,7 +120,7 @@ export default function HeroSection() {
                 hackX
               </span>
               <motion.span
-                className="text-4xl md:text-6xl"
+                className="text-3xl md:text-5xl"
                 style={{
                   background:
                     "linear-gradient(135deg, #D6DDE6 0%, #AAB6C2 50%, #FFFFFF 100%)",
@@ -144,13 +144,13 @@ export default function HeroSection() {
             {/* Subtitle */}
             <div className="space-y-4 mb-12">
               <TextGenerateEffect
-                words="The Inter-University Startup Challenge"
-                className="font-exo text-2xl md:text-4xl font-light text-space-gradient-start"
+                words="Startup Challenge"
+                className="font-ethnocentric text-2xl md:text-4xl font-light text-space-gradient-start"
               />
-              <TextGenerateEffect
+              {/* <TextGenerateEffect
                 words="The Legacy Continues..."
                 className="font-rajdhani text-lg md:text-2xl text-gray-300 leading-relaxed"
-              />
+              /> */}
             </div>
 
             {/* Coming Soon Badge */}
@@ -170,7 +170,7 @@ export default function HeroSection() {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <span className="font-orbitron text-2xl font-semibold text-white">
+                <span className="font-orbitron text-sm font-semibold text-white">
                   COMING SOON
                 </span>
               </motion.div>
@@ -183,12 +183,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
+            style={{ paddingLeft: "200px" }}
           >
             <Image
-              src="/images/mascott.png"
+              src="/images/mascott.webp"
               alt="HackX Mascot"
-              width={600}
-              height={600}
+              width={400}
+              height={400}
               className="filter grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer"
             />
           </motion.div>

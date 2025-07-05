@@ -117,17 +117,14 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <motion.div
-            className="inline-block px-6 py-2 rounded-full bg-cosmic-navy/50 border border-space-gradient-start/30 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
-            <MessageCircle className="w-4 h-4 inline mr-2 text-space-gradient-start" />
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
+            <MessageCircle className="w-4 h-4 inline  text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
               FAQ Assistant
             </span>
           </motion.div>
 
-          <h2 className="font-orbitron text-4xl md:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent">
+          <h2 className="font-orbitron text-4xl md:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent py-1">
             Get Your Answers Instantly
           </h2>
 
@@ -153,7 +150,7 @@ export default function FAQSection() {
                   </motion.div>
                   <div>
                     <h4 className="font-orbitron font-semibold text-white">
-                      Mascot
+                      Mascott
                     </h4>
                     <p className="text-space-gradient-start text-sm flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>

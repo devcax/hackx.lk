@@ -53,19 +53,14 @@ export default function PartnersSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cosmic-navy/30 border border-space-gradient-start/20 backdrop-blur-md mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
             <Handshake className="w-4 h-4 text-space-gradient-start" />
-            <span className="text-space-gradient-start text-sm font-medium tracking-wide uppercase">
+            <span className="text-space-gradient-start font-medium">
               Our Partners
             </span>
           </motion.div>
 
-          <h2 className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent">
+          <h2 className="font-orbitron text-4xl md:text-6xl lg:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent py-1">
             Powering the Future Together
           </h2>
 

@@ -12,6 +12,7 @@ import {
   ChevronUp,
   Phone,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const ref = useRef(null);
@@ -35,6 +36,7 @@ export default function Footer() {
     {
       icon: MapPin,
       text: "Department of Industrial Management, University of Kelaniya",
+      href: "https://www.kelaniya.ac.lk/department-of-industrial-management/",
     },
     {
       icon: Mail,
@@ -62,12 +64,18 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="font-orbitron text-xl font-bold text-white mb-4">
-                hackX <span className="text-base font-normal">10.0</span>
-              </h3>
+              <Image
+                src="/images/logo.webp"
+                alt="hackX Logo"
+                width={130}
+                height={80}
+                className="object-contain mb-4"
+              />
+
               <p className="text-gray-400 text-sm mb-6">
-                Intra-departmental ideathon for undergraduates of the Department
-                of Industrial Management.
+                Inter-University Startup Challenge for all undergraduates of
+                universities in Sri Lanka. Premier event of the Department of
+                Industrial Management, University of Kelaniya.
               </p>
               <div className="flex items-center gap-4">
                 <img
@@ -119,15 +127,15 @@ export default function Footer() {
                   <a
                     key={item.text}
                     href={item.href}
-                    className={`flex items-center gap-3 ${
+                    className={`group flex items-center gap-3 ${
                       !item.href && "pointer-events-none"
                     }`}
                   >
-                    <item.icon className="w-4 h-4 text-space-gradient-start/80 flex-shrink-0" />
+                    <item.icon className="w-4 h-4 text-space-gradient-start/80 flex-shrink-0 transition-colors duration-300 group-hover:text-white" />
                     <span
-                      className={`text-sm ${
+                      className={`text-sm transition-colors duration-300 ${
                         item.href
-                          ? "text-gray-400 hover:text-white transition-colors"
+                          ? "text-gray-400 group-hover:text-white"
                           : "text-gray-400"
                       }`}
                     >
@@ -165,42 +173,11 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="border-t border-space-gradient-start/20 mt-16 pt-6"
+            className="border-t border-space-gradient-start/20 mt-16 pt-6 text-center content-center"
           >
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-center md:text-left">
-                <p className="text-gray-400 text-sm">
-                  © 2025 hackX . All rights reserved.
-                </p>
-                <p className="text-gray-500 text-xs mt-1">
-                  Organized by IMSSA, University of Kelaniya
-                </p>
-              </div>
-
-              <div className="flex gap-6 text-xs">
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-space-gradient-start transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  Privacy Policy
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-space-gradient-start transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  Terms of Service
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-space-gradient-start transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  Code of Conduct
-                </motion.a>
-              </div>
-            </div>
+            <p className="text-gray-400 text-sm">
+              © 2025 hackX . All rights reserved.
+            </p>
           </motion.div>
         </div>
       </footer>

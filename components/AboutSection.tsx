@@ -2,7 +2,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { Sparkles, Target, Users, Trophy, ArrowRight } from "lucide-react";
+import LetterGlitch from "./ui/LetterGlitch";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -53,17 +55,14 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
-            whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.3)" }}
-          >
-            <Sparkles className="w-4 h-4 text-space-gradient-start" />
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
+            <Sparkles className="w-4 h-4 inline  text-space-gradient-start" />
             <span className="text-white/80 font-medium">About hackX</span>
           </motion.div>
 
-          <h2 className="font-orbitron text-5xl md:text-7xl font-bold mb-6">
+          <h2 className="font-orbitron text-4xl md:text-6xl lg:text-6xl font-bold mb-6 py-1">
             <motion.span
-              className="inline-block bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent"
+              className="inline-block bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent py-1"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -71,7 +70,7 @@ export default function AboutSection() {
               Empowering
             </motion.span>{" "}
             <motion.span
-              className="inline-block bg-gradient-to-r from-space-gradient-start to-space-gradient-end bg-clip-text text-transparent"
+              className="inline-block bg-gradient-to-r from-space-gradient-start to-space-gradient-end bg-clip-text text-transparent py-1"
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -184,14 +183,18 @@ export default function AboutSection() {
 
                 <div className="relative text-center space-y-6">
                   <motion.div
-                    className="font-orbitron text-7xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
-                    animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                    }}
-                    transition={{ duration: 5, repeat: Infinity }}
-                    style={{ backgroundSize: "200% 200%" }}
+                    className="flex justify-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    10.0
+                    <Image
+                      src="/images/logo.webp"
+                      alt="hackX 10.0 Logo"
+                      width={200}
+                      height={120}
+                      className="object-contain"
+                    />
                   </motion.div>
                   <div className="space-y-2">
                     <p className="text-2xl font-semibold bg-gradient-to-r from-space-gradient-start to-space-gradient-end bg-clip-text text-transparent">

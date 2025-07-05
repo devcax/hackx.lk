@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Orbitron, Rajdhani, Exo } from "next/font/google";
+import { ethnocentric } from "@/public/fonts/ethnocentric";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const orbitron = Orbitron({
@@ -41,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orbitron.variable} ${rajdhani.variable} ${exo.variable}`}
+      className={`${ethnocentric.variable} ${orbitron.variable} ${rajdhani.variable} ${exo.variable}`}
     >
       <body className="bg-cosmic-deep text-white font-rajdhani overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>

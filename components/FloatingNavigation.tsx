@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ChevronUp, Menu, X, Rocket } from "lucide-react";
+import Image from "next/image";
 
 export default function FloatingNavigation() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -87,23 +88,23 @@ export default function FloatingNavigation() {
             transition={{ duration: 0.3 }}
             className="fixed top-4 left-0 right-0 z-50 flex justify-center"
           >
-            <motion.div
-              className="bg-cosmic-navy/80 backdrop-blur-md border border-space-gradient-start/20 rounded-full px-6 py-3 shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-            >
+            <motion.div className="bg-cosmic-navy/80 backdrop-blur-md border border-space-gradient-start/20 rounded-full px-6 py-3 shadow-2xl">
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-6">
-                <motion.div
+                <motion.button
+                  onClick={scrollToTop}
                   className="flex items-center gap-2 mr-4"
                   whileHover={{ scale: 1.05 }}
+                  aria-label="Scroll to top"
                 >
-                  <motion.div className="w-8 h-8 bg-gradient-to-br from-space-gradient-start to-space-gradient-end rounded-full flex items-center justify-center">
-                    <Rocket className="w-4 h-4 text-cosmic-deep" />
-                  </motion.div>
-                  <span className="font-orbitron text-sm font-bold text-space-gradient-start">
-                    hackX
-                  </span>
-                </motion.div>
+                  <Image
+                    src="/images/logo.webp"
+                    alt="hackX Logo"
+                    width={70}
+                    height={40}
+                    className="object-contain"
+                  />
+                </motion.button>
 
                 {navItems.map((item) => (
                   <motion.button
@@ -124,25 +125,20 @@ export default function FloatingNavigation() {
 
               {/* Mobile Navigation */}
               <div className="md:hidden flex items-center justify-between">
-                <motion.div
+                <motion.button
+                  onClick={scrollToTop}
                   className="flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}
+                  aria-label="Scroll to top"
                 >
-                  <motion.div
-                    className="w-8 h-8 bg-gradient-to-br from-space-gradient-start to-space-gradient-end rounded-full flex items-center justify-center"
-                    animate={{ rotate: [0, 360] }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  >
-                    <Rocket className="w-4 h-4 text-cosmic-deep" />
-                  </motion.div>
-                  <span className="font-orbitron text-sm font-bold text-space-gradient-start">
-                    hackX
-                  </span>
-                </motion.div>
+                  <Image
+                    src="/images/logo.webp"
+                    alt="hackX Logo"
+                    width={50}
+                    height={30}
+                    className="object-contain"
+                  />
+                </motion.button>
 
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

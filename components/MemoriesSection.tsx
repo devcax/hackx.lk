@@ -83,11 +83,8 @@ export default function MemoriesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-block px-6 py-2 rounded-full bg-cosmic-navy/50 border border-space-gradient-start/30 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Camera className="w-4 h-4 inline mr-2 text-space-gradient-start" />
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
+            <Camera className="w-4 h-4 inline  text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
               Memories
             </span>

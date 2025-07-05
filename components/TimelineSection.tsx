@@ -80,17 +80,14 @@ export default function TimelineSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
-            className="inline-block px-6 py-2 rounded-full bg-cosmic-navy/50 border border-space-gradient-start/30 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Calendar className="w-4 h-4 inline mr-2 text-space-gradient-start" />
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
+            <Calendar className="w-4 h-4 inline  text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
               Competition Timeline
             </span>
           </motion.div>
 
-          <h2 className="font-orbitron text-4xl md:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent">
+          <h2 className="font-orbitron text-4xl md:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent py-1">
             Journey to Innovation
           </h2>
 

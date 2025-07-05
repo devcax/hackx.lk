@@ -94,10 +94,7 @@ export default function TeamSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-block px-6 py-2 rounded-full bg-cosmic-navy/50 border border-space-gradient-start/30 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
             <Users className="w-4 h-4 inline mr-2 text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
               Meet Our Team
@@ -127,13 +124,15 @@ export default function TeamSection() {
                   key={member.name}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.3333%] p-4"
                 >
-                  <div className="group relative bg-cosmic-navy/60 backdrop-blur-sm border border-space-gradient-start/20 rounded-2xl p-6 text-center transition-all duration-300 hover:border-space-gradient-start/40 hover:bg-cosmic-navy/80">
-                    <div className="relative mb-4">
+                  <div className="group relative bg-cosmic-navy/60 backdrop-blur-sm border border-space-gradient-start/10 rounded-2xl p-6 text-center transition-all duration-300 hover:border-space-gradient-start/20">
+                    <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-cosmic-blue/50 shadow-inner-lg shadow-cosmic-deep">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-cosmic-blue/50 transition-all"
+                        className="w-full h-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
                       />
+                      {/* Dark blue tint overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-cosmic-deep/70 to-cosmic-blue/50 mix-blend-hard-light transition-all duration-500 group-hover:opacity-0" />
                     </div>
 
                     <h3 className="font-orbitron text-xl font-bold text-white mb-1">

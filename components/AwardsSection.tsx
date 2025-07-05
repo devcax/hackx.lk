@@ -69,10 +69,7 @@ export default function AwardsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8"
-            whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.2)" }}
-          >
+          <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
             <Trophy className="w-4 h-4 inline  text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
               Competition Awards
