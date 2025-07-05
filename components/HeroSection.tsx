@@ -70,32 +70,21 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-b from-cosmic-blue/40 via-cosmic-navy/70 to-cosmic-deep">
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        {[...Array(60)].map((_, i) => (
-          <motion.div
-            key={`star-${i}`}
-            className="absolute rounded-full bg-white/70"
-            initial={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5,
-              scale: Math.random() * 0.6,
-            }}
-            style={{
-              width: `${Math.random() * 1.5 + 0.5}px`,
-              height: `${Math.random() * 1.5 + 0.5}px`,
-            }}
-            animate={{
-              opacity: [0.1, 0.7, 0.1],
-            }}
-            transition={{
-              duration: Math.random() * 4 + 3,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-30"
+        >
+          <source src="/videos/hero.webm" type="video/webm" />
+        </video>
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-cosmic-blue/60 via-cosmic-navy/70 to-cosmic-deep/80" />
       </div>
+
       {/* Main content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

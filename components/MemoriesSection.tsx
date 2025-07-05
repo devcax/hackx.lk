@@ -105,13 +105,14 @@ export default function MemoriesSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative lg:px-12"
         >
           <Swiper
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
             loop={true}
+            loopAdditionalSlides={2}
             slidesPerView="auto"
             coverflowEffect={{
               rotate: 20,

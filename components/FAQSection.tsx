@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { MessageCircle, Send, Bot, User, RefreshCw } from "lucide-react";
+import Image from "next/image";
 
 export default function FAQSection() {
   const ref = useRef(null);
@@ -146,11 +147,16 @@ export default function FAQSection() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <motion.div className="w-10 h-10 bg-gradient-to-br from-space-gradient-start to-space-gradient-end rounded-full flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-cosmic-deep" />
+                    <Image
+                      src="/images/mascott.webp"
+                      alt="hackX 10.0"
+                      width={25}
+                      height={25}
+                    />
                   </motion.div>
                   <div>
                     <h4 className="font-orbitron font-semibold text-white">
-                      Mascott
+                      Mascot
                     </h4>
                     <p className="text-space-gradient-start text-sm flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
@@ -197,7 +203,12 @@ export default function FAQSection() {
                       }`}
                     >
                       {message.type === "bot" ? (
-                        <Bot className="w-4 h-4 text-cosmic-deep" />
+                        <Image
+                          src="/images/mascott.webp"
+                          alt="hackX 10.0"
+                          width={18}
+                          height={18}
+                        />
                       ) : (
                         <User className="w-4 h-4 text-white" />
                       )}
