@@ -17,7 +17,6 @@ import {
 export default function TimelineSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeTimeline, setActiveTimeline] = useState("hackx");
 
   const hackXTimelineData = [
     {
@@ -131,6 +130,8 @@ export default function TimelineSection() {
     },
   };
 
+  const [activeTimeline, setActiveTimeline] =
+    useState<keyof typeof timelines>("hackx");
   const currentTimeline = timelines[activeTimeline];
 
   return (
@@ -203,7 +204,9 @@ export default function TimelineSection() {
               {Object.entries(timelines).map(([key, timeline]) => (
                 <button
                   key={key}
-                  onClick={() => setActiveTimeline(key)}
+                  onClick={() =>
+                    setActiveTimeline(key as keyof typeof timelines)
+                  }
                   className={`relative z-10 px-6 py-3 rounded-lg font-rajdhani font-semibold transition-all duration-300 ${
                     activeTimeline === key
                       ? "text-space-gradient-start"

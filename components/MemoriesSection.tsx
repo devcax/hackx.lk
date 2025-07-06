@@ -61,6 +61,10 @@ export default function MemoriesSection() {
     },
   ];
 
+  // By duplicating the slides, we provide more items for Swiper's loop mode,
+  // ensuring a seamless transition in both directions.
+  const loopedMemories = [...memories, ...memories];
+
   const openLightbox = (image: string) => {
     setLightboxImage(image);
     document.body.style.overflow = "hidden";
@@ -112,7 +116,6 @@ export default function MemoriesSection() {
             grabCursor={true}
             centeredSlides={true}
             loop={true}
-            loopAdditionalSlides={2}
             slidesPerView="auto"
             coverflowEffect={{
               rotate: 20,
@@ -144,9 +147,9 @@ export default function MemoriesSection() {
               },
             }}
           >
-            {memories.map((memory, index) => (
+            {loopedMemories.map((memory, index) => (
               <SwiperSlide
-                key={memory.id}
+                key={`${memory.id}-${index}`}
                 className="max-w-sm rounded-2xl overflow-hidden"
               >
                 <motion.div

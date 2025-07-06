@@ -55,7 +55,10 @@ export default function AwardsSection() {
   const animationDelays = [0.2, 0, 0.2];
 
   return (
-    <section ref={ref} className="relative py-24 px-4 overflow-hidden">
+    <section
+      ref={ref}
+      className="relative py-24 px-4 sm:px-6 lg:px-4 overflow-hidden"
+    >
       {/* Enhanced Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80" />
@@ -81,7 +84,7 @@ export default function AwardsSection() {
           </h2>
 
           <motion.p
-            className="text-xl text-white/60 max-w-3xl mx-auto"
+            className="text-xl text-white/60 max-w-3xl mx-auto px-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -92,7 +95,7 @@ export default function AwardsSection() {
         </motion.div>
 
         {/* Main Awards Grid */}
-        <div className="grid md:grid-cols-3 gap-12 items-end mb-20">
+        <div className="grid md:grid-cols-3 gap-12 md:gap-12 items-end mb-20 px-4 sm:px-0">
           {awards.map((award, index) => {
             const isFirstPlace = award.position === "1st Place";
             return (
@@ -132,18 +135,18 @@ export default function AwardsSection() {
                   />
 
                   {/* Glass card */}
-                  <div className="relative h-full bg-white/1 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500">
+                  <div className="relative h-full bg-white/1 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all duration-500">
                     {/* Content */}
                     <div className="text-center">
                       {/* Icon container */}
                       <motion.div
-                        className="relative mx-auto mb-8"
+                        className="relative mx-auto mb-6 sm:mb-8"
                         transition={{ duration: 0.3 }}
                       >
                         <div
-                          className={`w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center shadow-2xl`}
+                          className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center shadow-2xl`}
                         >
-                          <award.icon className="w-12 h-12 text-white" />
+                          <award.icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                         </div>
                       </motion.div>
 
@@ -152,14 +155,14 @@ export default function AwardsSection() {
                         <p className="text-sm font-medium text-white/60 mb-2">
                           {award.position}
                         </p>
-                        <h3 className="font-orbitron text-3xl font-bold text-white mb-4">
+                        <h3 className="font-orbitron text-2xl sm:text-3xl font-bold text-white mb-4">
                           {award.title}
                         </h3>
 
                         {/* Prize amount */}
                         <div className="relative">
                           <p
-                            className={`font-orbitron text-4xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
+                            className={`font-orbitron text-3xl sm:text-4xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
                           >
                             {award.prize}
                           </p>

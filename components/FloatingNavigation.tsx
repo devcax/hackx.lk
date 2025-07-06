@@ -93,7 +93,7 @@ export default function FloatingNavigation() {
               <div className="hidden md:flex items-center gap-6">
                 <motion.button
                   onClick={scrollToTop}
-                  className="flex items-center gap-2 mr-4"
+                  className="flex items-center gap-2 mr-6 pr-6 border-r border-space-gradient-start/20"
                   whileHover={{ scale: 1.05 }}
                   aria-label="Scroll to top"
                 >
@@ -124,7 +124,7 @@ export default function FloatingNavigation() {
               </div>
 
               {/* Mobile Navigation */}
-              <div className="md:hidden flex items-center justify-between">
+              <div className="md:hidden flex items-center justify-between w-full">
                 <motion.button
                   onClick={scrollToTop}
                   className="flex items-center gap-2"
@@ -142,7 +142,7 @@ export default function FloatingNavigation() {
 
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="w-10 h-10 rounded-full bg-space-gradient-start/20 flex items-center justify-center text-space-gradient-start"
+                  className="w-10 h-10 rounded-full bg-space-gradient-start/20 flex items-center justify-center text-space-gradient-start ml-4"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -159,7 +159,7 @@ export default function FloatingNavigation() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -20, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-cosmic-navy/90 backdrop-blur-md border border-space-gradient-start/20 rounded-2xl p-4 shadow-2xl"
+                  className="absolute top-full left-4 right-4 mt-2 bg-cosmic-navy/90 backdrop-blur-md border border-space-gradient-start/20 rounded-2xl p-4 shadow-2xl"
                 >
                   <div className="grid grid-cols-2 gap-2">
                     {navItems.map((item) => (

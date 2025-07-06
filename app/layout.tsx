@@ -24,7 +24,7 @@ const exo = Exo({
 });
 
 export const metadata: Metadata = {
-  title: "hackX 10.0 - The Inter-University Startup Challenge",
+  title: "hackX 10.0",
   description:
     "hackX is a renowned inter-university startup challenge organized by IMSSA, University of Kelaniya. Join us for the tenth edition focusing on Sustainable Innovation.",
   keywords:
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ethnocentric.variable} ${orbitron.variable} ${rajdhani.variable} ${exo.variable}`}
+      className={`${orbitron.variable} ${rajdhani.variable} ${exo.variable} ${ethnocentric.variable}`}
     >
       <body className="bg-cosmic-deep text-white font-rajdhani overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>

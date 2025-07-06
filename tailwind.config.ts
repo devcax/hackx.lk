@@ -13,6 +13,7 @@ const config: Config = {
         orbitron: ["Orbitron", "sans-serif"],
         rajdhani: ["Rajdhani", "sans-serif"],
         exo: ["Exo", "sans-serif"],
+        ethnocentric: ["var(--font-ethnocentric)", "sans-serif"],
       },
       colors: {
         cosmic: {
