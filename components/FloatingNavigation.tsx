@@ -93,8 +93,7 @@ export default function FloatingNavigation() {
               <div className="hidden md:flex items-center gap-6">
                 <motion.button
                   onClick={scrollToTop}
-                  className="flex items-center gap-2 mr-6 pr-6 border-r border-space-gradient-start/20"
-                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center gap-2 mr-2"
                   aria-label="Scroll to top"
                 >
                   <Image
