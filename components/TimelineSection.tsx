@@ -23,7 +23,7 @@ export default function TimelineSection() {
       phase: "Phase 1",
       title: "Idea Submission",
       description:
-        "Submit your innovative startup ideas focusing on sustainable innovation. Teams can register and submit their initial concepts.",
+        "Register your team and submit your innovative, sustainability-driven startup concept.",
       icon: Send,
       date: "Week 1-2",
       color: "from-blue-500 to-cyan-500",
@@ -32,16 +32,16 @@ export default function TimelineSection() {
       phase: "Phase 2",
       title: "Initial Selection",
       description:
-        "Expert panel reviews submissions and selects the most promising ideas. Selected teams advance to the next phase.",
+        "Our expert panel  evaluates and shortlists the most promising entries.",
       icon: Star,
       date: "Week 3",
       color: "from-purple-500 to-pink-500",
     },
     {
       phase: "Phase 3",
-      title: "Mentoring Sessions",
+      title: "Mentorship Sessions",
       description:
-        "Selected teams receive guidance from industry experts and mentors to refine their business models and presentations.",
+        "Shortlisted teams receive exclusive mentorship to shape their business models.",
       icon: Users,
       date: "Week 4-5",
       color: "from-green-500 to-emerald-500",
@@ -50,16 +50,16 @@ export default function TimelineSection() {
       phase: "Phase 4",
       title: "Pitch Development",
       description:
-        "Teams develop their final pitches with comprehensive business plans, market analysis, and prototype development.",
+        "Refine your final pitch, complete with a business plan, market insights, and prototype.",
       icon: Lightbulb,
       date: "Week 6-7",
       color: "from-yellow-500 to-orange-500",
     },
     {
       phase: "Phase 5",
-      title: "Grand Finale",
+      title: "The Grand Finale",
       description:
-        "Final presentations to judges and investors. Winners receive prizes, funding opportunities, and industry recognition.",
+        "Final presentation to judges and investors. Compete for Award, funding opportunities, and industry recognition.",
       icon: Trophy,
       date: "Week 8",
       color: "from-red-500 to-rose-500",
@@ -180,8 +180,7 @@ export default function TimelineSection() {
           </AnimatePresence>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Follow the path from idea to reality through our structured
-            competition phases
+            From Spark to Startup through our structured competition phases.
           </p>
         </motion.div>
 

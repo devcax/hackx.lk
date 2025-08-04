@@ -14,25 +14,25 @@ export default function AboutSection() {
     {
       icon: Target,
       title: "Sustainable Innovation",
-      description: "Focus on groundbreaking ideas that shape the future",
+      description: "Empowering ideas that shape the future",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: Users,
       title: "Inter-University",
-      description: "Connecting brilliant minds across universities",
+      description: "Connecting together the brightest minds from universities across Sri Lanka.",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Trophy,
       title: "Premier Platform",
-      description: "Present ideas to esteemed industry experts",
+      description: "Present your idea to leading industry professional and pioneers.",
       color: "from-orange-500 to-red-500",
     },
     {
       icon: Sparkles,
       title: "Investor Support",
-      description: "Build connections and gain investor backing",
+      description: "Connect with investors and gain access to real funding opportunities.",
       color: "from-green-500 to-emerald-500",
     },
   ];
@@ -85,7 +85,8 @@ export default function AboutSection() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Where visionary ideas meet transformative opportunities
+            Where disruptive minds unlock extraordinary ventures.
+
           </motion.p>
         </motion.div>
 
@@ -137,9 +138,9 @@ export default function AboutSection() {
               </motion.div>
 
               <p className="text-gray-300 leading-relaxed">
-                hackX 10.0 provides undergraduates with an exclusive platform to
-                pitch revolutionary ideas to industry leaders, connect with
-                investors, and transform concepts into reality.
+                hackX 10.0 offers undergraduates a dedicated platform to present 
+                groundbreaking ideas to industry leaders, engage with potential 
+                investors, and turn their concepts into viable solutions.
               </p>
             </div>
 
@@ -206,7 +207,7 @@ export default function AboutSection() {
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
                     <div>
-                      <p className="text-2xl font-bold text-white">500+</p>
+                      <p className="text-2xl font-bold text-white">5000+</p>
                       <p className="text-sm text-white/60">Participants</p>
                     </div>
                     <div>
@@ -214,8 +215,8 @@ export default function AboutSection() {
                       <p className="text-sm text-white/60">Universities</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-white">100+</p>
-                      <p className="text-sm text-white/60">Startups</p>
+                      <p className="text-2xl font-bold text-white">20+</p>
+                      <p className="text-sm text-white/60">Startups Launched</p>
                     </div>
                   </div>
                 </div>

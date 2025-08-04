@@ -106,8 +106,8 @@ export default function TeamSection() {
           </h2>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Meet the dedicated team behind hackX 10.0, working tirelessly to
-            create an unforgettable experience
+            Meet the dedicated team behind hackX 10.0, committed to delivering an 
+            exceptional and impactful experience.
           </p>
         </motion.div>
 

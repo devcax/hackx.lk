@@ -56,7 +56,7 @@ export default function PartnersSection() {
           <motion.div className="shine-effect inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8">
             <Handshake className="w-4 h-4 text-space-gradient-start" />
             <span className="text-space-gradient-start font-medium">
-              Our Partners
+              Our Esteemed Partners
             </span>
           </motion.div>
 
@@ -65,8 +65,8 @@ export default function PartnersSection() {
           </h2>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            We are proud to collaborate with a diverse network of
-            forward-thinking organizations and industry leaders.
+            We are proud to partner with a distinguished network of forward-thinking 
+            organizations and industry leaders committed to innovation
           </p>
         </motion.div>
 
