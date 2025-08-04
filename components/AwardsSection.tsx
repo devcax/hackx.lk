@@ -21,7 +21,7 @@ export default function AwardsSection() {
     {
       position: "1st Place",
       title: "Champion",
-      prize: "LKR 125,000",
+      prize: "LKR 150,000",
       icon: Crown,
       color: "from-yellow-400 via-yellow-500 to-yellow-600",
       bgGradient: "from-yellow-500/20 via-yellow-500/10 to-transparent",
@@ -31,7 +31,7 @@ export default function AwardsSection() {
     {
       position: "2nd Place",
       title: "Runner-up",
-      prize: "LKR 75,000",
+      prize: "LKR 100,000",
       icon: Trophy,
       color: "from-gray-300 via-gray-400 to-gray-500",
       bgGradient: "from-gray-400/20 via-gray-400/10 to-transparent",
@@ -80,7 +80,7 @@ export default function AwardsSection() {
           </motion.div>
 
           <h2 className="font-orbitron text-4xl md:text-6xl font-bold mb-6 bg-text-gradient bg-clip-text text-transparent">
-            Awards
+            hackX 10.0 Awards
           </h2>
 
           <motion.p
@@ -89,8 +89,8 @@ export default function AwardsSection() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Exceptional prizes and transformative opportunities for innovative
-            minds
+            Unleashing potential with exceptional prizes and transformative 
+            opportunities for tomorrow’s innovators.
           </motion.p>
         </motion.div>
 

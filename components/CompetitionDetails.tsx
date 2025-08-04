@@ -246,8 +246,8 @@ export default function CompetitionDetails() {
                 </h3>
 
                 <p className="text-gray-300 mb-8 leading-relaxed text-center">
-                  Download the guidelines document for detailed competition
-                  rules, judging criteria, and submission requirements.
+                  Access the official guidelines for detailed information on competition 
+                  rules, evaluation criteria, and submission requirements.
                 </p>
 
                 <div className="mt-auto space-y-4">
@@ -279,13 +279,13 @@ export default function CompetitionDetails() {
                 <div>
                   <h4 className="font-semibold text-white">Need Help?</h4>
                   <p className="text-sm text-gray-300">
-                    Contact our support team for any questions about the
-                    competition rules
+                    Our team is here to assist you with any inquiries related to the event, 
+                    guidelines, or technical support.
                   </p>
                 </div>
               </div>
               <button className="text-space-gradient-start font-medium hover:text-white transition-colors duration-200 flex items-center gap-2">
-                Contact Our HackX Team
+                Contact the hackX 10.0 Support Team
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
