@@ -212,8 +212,8 @@ export default function FAQSection() {
   return (
     <section ref={ref} className="relative py-24 px-4 overflow-hidden ">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep" />
-
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep" /> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -428,7 +428,6 @@ export default function FAQSection() {
           </div>
         </motion.div>
       </div>
-
       {/* Custom scrollbar styles */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {

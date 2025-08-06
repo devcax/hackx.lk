@@ -58,9 +58,13 @@ export default function Footer() {
 
   return (
     <>
+      {/* <footer
+        ref={ref}
+        className="relative bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80 border-t border-white/10 pt-20 pb-10 px-4">
+       */}
       <footer
         ref={ref}
-        className="relative bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80 border-t border-white/10 pt-20 pb-10 px-4"
+        className="relative bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep border-t border-white/10 pt-20 pb-10 px-4"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -185,7 +189,7 @@ export default function Footer() {
             className="border-t border-space-gradient-start/20 mt-16 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
           >
             <p className="text-gray-400 text-sm text-center md:text-left">
-              Organized by Department of Industrial Management
+              Organized by the Department of Industrial Management
             </p>
             <p className="text-gray-400 text-sm text-center md:text-right">
               © 2025 hackX. All rights reserved.

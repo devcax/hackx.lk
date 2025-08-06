@@ -78,8 +78,8 @@ export default function MemoriesSection() {
   return (
     <section ref={ref} className="relative py-24 px-4 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80" />
-
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-cosmic-deep via-cosmic-navy/90 to-cosmic-blue/80" /> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -99,7 +99,7 @@ export default function MemoriesSection() {
           </h2>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Experience the highlights of hackX editions and witness the 
+            Experience the highlights of hackX editions and witness the
             unforgettable moments that shaped the hackX legacy.
           </p>
         </motion.div>
@@ -210,7 +210,6 @@ export default function MemoriesSection() {
           </Swiper>
         </motion.div>
       </div>
-
       {/* Lightbox */}
       {lightboxImage && (
         <motion.div
@@ -244,7 +243,6 @@ export default function MemoriesSection() {
           </motion.div>
         </motion.div>
       )}
-
       {/* Custom styles for Swiper */}
       <style jsx global>{`
         .memories-swiper {

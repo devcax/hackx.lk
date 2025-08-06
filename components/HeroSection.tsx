@@ -436,7 +436,7 @@ export default function HeroSection() {
                 alt="HackX Mascot"
                 width={400}
                 height={400}
-                className="filter grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer relative z-10"
+                className="filter  hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer relative z-10"
               />
 
               {/* Sparkle effects on hover */}

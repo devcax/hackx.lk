@@ -1,16 +1,20 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import {
-  Trophy,
-  Medal,
-  Award,
-  Star,
-  Crown,
-  Sparkles,
-  Zap,
-  Target,
-} from "lucide-react";
+import { Trophy } from "lucide-react";
+import Image from "next/image";
+
+const FirstPlaceIcon = () => (
+  <Image src="/icons/1.ico" alt="1st Place" width={48} height={48} />
+);
+
+const SecondPlaceIcon = () => (
+  <Image src="/icons/2.ico" alt="2nd Place" width={48} height={48} />
+);
+
+const ThirdPlaceIcon = () => (
+  <Image src="/icons/3.ico" alt="3rd Place" width={48} height={48} />
+);
 
 export default function AwardsSection() {
   const ref = useRef(null);
@@ -23,7 +27,7 @@ export default function AwardsSection() {
       position: "1st Place",
       title: "Champion",
       prize: "LKR 150,000",
-      icon: Trophy, // Changed from Crown to Trophy for the grand prize
+      icon: FirstPlaceIcon, // Custom first place icon
       color: "from-yellow-400 via-yellow-500 to-yellow-600",
       bgGradient: "from-yellow-500/20 via-yellow-500/10 to-transparent",
       shadowColor: "rgba(251, 191, 36, 0.5)",
@@ -33,7 +37,7 @@ export default function AwardsSection() {
       position: "2nd Place",
       title: "Runner-up",
       prize: "LKR 100,000",
-      icon: Medal, // Changed from Trophy to Medal for a clear second place
+      icon: SecondPlaceIcon, // Custom second place icon
       color: "from-gray-300 via-gray-400 to-gray-500",
       bgGradient: "from-gray-400/20 via-gray-400/10 to-transparent",
       shadowColor: "rgba(156, 163, 175, 0.5)",
@@ -42,8 +46,8 @@ export default function AwardsSection() {
     {
       position: "3rd Place",
       title: "Second Runner-up",
-      prize: "LKR 50,000",
-      icon: Award, // Changed from Medal to a ribbon Award for third place
+      prize: "LKR 75,000",
+      icon: ThirdPlaceIcon, // Custom third place icon
       color: "from-amber-600 via-amber-700 to-amber-800",
       bgGradient: "from-amber-700/20 via-amber-700/10 to-transparent",
       shadowColor: "rgba(217, 119, 6, 0.5)",

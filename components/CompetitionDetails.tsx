@@ -24,7 +24,7 @@ export default function CompetitionDetails() {
       icon: Users,
       title: "Team Composition",
       description:
-        "Teams of 3-5 undergraduate students from any university in Sri Lanka",
+        "Teams of 3-5 undergraduates from any university in Sri Lanka",
       highlight: "3-5 members",
     },
     {
@@ -37,7 +37,7 @@ export default function CompetitionDetails() {
     {
       icon: Clock,
       title: "Duration",
-      description: "8-week intensive program from registration to grand finale",
+      description: "8-week intensive program from registration to Grand Finale",
       highlight: "8 weeks",
     },
     {

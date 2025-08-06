@@ -6,7 +6,7 @@ import {
   Calendar,
   Lightbulb,
   Trophy,
-  ClipboardPen,
+  ClipboardList, // Using the cleaner, non-overlapping icon
   FileUp,
   Presentation,
   DraftingCompass,
@@ -32,7 +32,7 @@ export default function TimelineSection() {
       title: "Registrations Open",
       description:
         "Get ready to join the action. Assemble your team and officially register to compete in IdeaSprint.",
-      icon: ClipboardPen,
+      icon: ClipboardList,
       date: "6th August 2025",
     },
     {
@@ -91,7 +91,7 @@ export default function TimelineSection() {
       title: "Registration Opens",
       description:
         "Teams register for the hackathon. Form your team and prepare for the coding challenge ahead.",
-      icon: ClipboardPen,
+      icon: ClipboardList,
       date: "Week 1",
     },
     {
@@ -225,7 +225,6 @@ export default function TimelineSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                  // Simplified flex direction for clarity
                   className={`flex items-center my-8 md:my-0 flex-row-reverse ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -260,19 +259,16 @@ export default function TimelineSection() {
                     </div>
                   </div>
 
-                  {/* --- FIX IS HERE --- */}
                   <div className="hidden md:flex w-2/12 items-center justify-center relative">
-                    {/* This connector line is now positioned correctly */}
                     <div
                       className={`absolute top-1/2 -translate-y-1/2 h-px w-1/2 bg-space-gradient-start/30 ${
                         index % 2 === 0 ? "left-0" : "right-0"
                       }`}
                     />
-                    <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-space-gradient-start/20 to-space-gradient-end/20 flex items-center justify-center ring-4 ring-cosmic-deep">
+                    <div className="relative w-12 h-12 rounded-lg flex items-center justify-center ring-4 bg-cosmic-navy ring-cosmic-deep">
                       <item.icon className="w-6 h-6 text-space-gradient-start" />
                     </div>
                   </div>
-                  {/* End of fix */}
 
                   <div className="hidden md:block w-5/12" />
                 </motion.div>
