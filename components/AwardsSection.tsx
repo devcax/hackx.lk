@@ -1,6 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
   Trophy,
@@ -17,12 +16,14 @@ export default function AwardsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // --- Icon Changes Here ---
+  // Updated icons for a more professional and distinct hierarchy.
   const awardsData = [
     {
       position: "1st Place",
       title: "Champion",
       prize: "LKR 150,000",
-      icon: Crown,
+      icon: Trophy, // Changed from Crown to Trophy for the grand prize
       color: "from-yellow-400 via-yellow-500 to-yellow-600",
       bgGradient: "from-yellow-500/20 via-yellow-500/10 to-transparent",
       shadowColor: "rgba(251, 191, 36, 0.5)",
@@ -32,7 +33,7 @@ export default function AwardsSection() {
       position: "2nd Place",
       title: "Runner-up",
       prize: "LKR 100,000",
-      icon: Trophy,
+      icon: Medal, // Changed from Trophy to Medal for a clear second place
       color: "from-gray-300 via-gray-400 to-gray-500",
       bgGradient: "from-gray-400/20 via-gray-400/10 to-transparent",
       shadowColor: "rgba(156, 163, 175, 0.5)",
@@ -42,7 +43,7 @@ export default function AwardsSection() {
       position: "3rd Place",
       title: "Second Runner-up",
       prize: "LKR 50,000",
-      icon: Medal,
+      icon: Award, // Changed from Medal to a ribbon Award for third place
       color: "from-amber-600 via-amber-700 to-amber-800",
       bgGradient: "from-amber-700/20 via-amber-700/10 to-transparent",
       shadowColor: "rgba(217, 119, 6, 0.5)",
@@ -89,7 +90,7 @@ export default function AwardsSection() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Unleashing potential with exceptional prizes and transformative 
+            Unleashing potential with exceptional prizes and transformative
             opportunities for tomorrow’s innovators.
           </motion.p>
         </motion.div>

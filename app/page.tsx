@@ -90,11 +90,11 @@ export default function Home() {
         </Suspense>
       </section>
 
-      <section id="partners">
+      {/* <section id="partners">
         <Suspense fallback={<LoadingSpinner />}>
           <PartnersSection />
         </Suspense>
-      </section>
+      </section> */}
 
       <section id="memories">
         <Suspense fallback={<LoadingSpinner />}>

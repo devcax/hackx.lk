@@ -246,8 +246,9 @@ export default function CompetitionDetails() {
                 </h3>
 
                 <p className="text-gray-300 mb-8 leading-relaxed text-center">
-                  Access the official guidelines for detailed information on competition 
-                  rules, evaluation criteria, and submission requirements.
+                  Access the official guidelines for detailed information on
+                  competition rules, evaluation criteria, and submission
+                  requirements.
                 </p>
 
                 <div className="mt-auto space-y-4">
@@ -255,6 +256,14 @@ export default function CompetitionDetails() {
                     className="group flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-space-gradient-start to-space-gradient-end text-cosmic-deep font-semibold rounded-xl hover:shadow-lg transition-all duration-300 w-full justify-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = "/pdf/rulebook.pdf";
+                      link.download = "hackX-10.0-Rulebook.pdf";
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
                   >
                     <Download className="w-5 h-5" />
                     <span>Download PDF</span>
@@ -279,12 +288,20 @@ export default function CompetitionDetails() {
                 <div>
                   <h4 className="font-semibold text-white">Need Help?</h4>
                   <p className="text-sm text-gray-300">
-                    Our team is here to assist you with any inquiries related to the event, 
-                    guidelines, or technical support.
+                    Our team is here to assist you with any inquiries related to
+                    the event, guidelines, or technical support.
                   </p>
                 </div>
               </div>
-              <button className="text-space-gradient-start font-medium hover:text-white transition-colors duration-200 flex items-center gap-2">
+              <button
+                className="text-space-gradient-start font-medium hover:text-white transition-colors duration-200 flex items-center gap-2"
+                onClick={() => {
+                  const teamSection = document.getElementById("team");
+                  if (teamSection) {
+                    teamSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 Contact the hackX 10.0 Support Team
                 <ChevronRight className="w-4 h-4" />
               </button>

@@ -1,14 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Sparkles, Target, Users, Trophy, ArrowRight } from "lucide-react";
 import LetterGlitch from "./ui/LetterGlitch";
+import LearnMoreModal from "./LearnMoreModal";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const features = [
     {
@@ -20,19 +22,22 @@ export default function AboutSection() {
     {
       icon: Users,
       title: "Inter-University",
-      description: "Connecting together the brightest minds from universities across Sri Lanka.",
+      description:
+        "Connecting together the brightest minds from universities across Sri Lanka.",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Trophy,
       title: "Premier Platform",
-      description: "Present your idea to leading industry professional and pioneers.",
+      description:
+        "Present your idea to leading industry professional and pioneers.",
       color: "from-orange-500 to-red-500",
     },
     {
       icon: Sparkles,
       title: "Investor Support",
-      description: "Connect with investors and gain access to real funding opportunities.",
+      description:
+        "Connect with investors and gain access to real funding opportunities.",
       color: "from-green-500 to-emerald-500",
     },
   ];
@@ -86,7 +91,6 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Where disruptive minds unlock extraordinary ventures.
-
           </motion.p>
         </motion.div>
 
@@ -138,16 +142,17 @@ export default function AboutSection() {
               </motion.div>
 
               <p className="text-gray-300 leading-relaxed">
-                hackX 10.0 offers undergraduates a dedicated platform to present 
-                groundbreaking ideas to industry leaders, engage with potential 
+                hackX 10.0 offers undergraduates a dedicated platform to present
+                groundbreaking ideas to industry leaders, engage with potential
                 investors, and turn their concepts into viable solutions.
               </p>
             </div>
 
             <motion.button
-              className="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-space-gradient-start to-space-gradient-end rounded-full font-medium text-slate-800 shadow-lg shadow-space-gradient-start/25"
+              className="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-space-gradient-start to-space-gradient-end rounded-full font-medium text-slate-800 shadow-lg shadow-space-gradient-start/25 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsModalOpen(true)}
             >
               Learn More About hackX
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -268,6 +273,12 @@ export default function AboutSection() {
           ))}
         </motion.div>
       </div>
+
+      {/* Learn More Modal */}
+      <LearnMoreModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

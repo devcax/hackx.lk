@@ -49,8 +49,8 @@ export default function TeamSection() {
       role: "hackX Coordinator",
       image: "/images/team/sajith.webp",
       social: {
-        email: "samantha@imssa.lk",
-        phone: "123-456-7890",
+        email: "sajith.hackx@gmail.com",
+        phone: "0740369712",
       },
     },
     {
@@ -58,26 +58,53 @@ export default function TeamSection() {
       role: "hackX Coordinator",
       image: "/images/team/dinethya.webp",
       social: {
-        email: "ravindu@imssa.lk",
-        phone: "123-456-7890",
+        email: "gymdinethya@gmail.com",
+        phone: "0750233733",
       },
     },
     {
       name: "Thenul Minjaya",
-      role: "ideasprint Coordinator",
+      role: "Partnership Coordinator",
       image: "/images/team/thenul.webp",
       social: {
-        email: "ishara@imssa.lk",
-        phone: "123-456-7890",
+        email: "Tminjaja2003@gmail.com",
+        phone: "0763631145",
       },
     },
     {
       name: "Rochelle Anuradha",
-      role: "ideasprint Coordinator",
+      role: "Partnership Coordinator",
       image: "/images/team/rochelle.webp",
       social: {
-        email: "kasun@imssa.lk",
-        phone: "123-456-7890",
+        email: "rochelleanuradhaj@gmail.com",
+        phone: "0760885142",
+      },
+    },
+    {
+      name: "Sewmini Bhagya",
+      role: "Financial Coordinator",
+      image: "/images/team/sewmini.webp",
+      social: {
+        email: "sewminibhagya000@gmail.com",
+        phone: "0760885142",
+      },
+    },
+    {
+      name: "Dekum Diwanjana",
+      role: "Financial Coordinator",
+      image: "/images/team/dekum.webp",
+      social: {
+        email: "dekumdiwanjana75@gmail.com",
+        phone: "0773517068",
+      },
+    },
+    {
+      name: "Akindu Samarasinghe ",
+      role: "Marketing Coordinator",
+      image: "/images/team/akindu.webp",
+      social: {
+        email: "akindusamarasinghe21@gmail.com",
+        phone: "0743133109",
       },
     },
   ];
@@ -106,8 +133,8 @@ export default function TeamSection() {
           </h2>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Meet the dedicated team behind hackX 10.0, committed to delivering an 
-            exceptional and impactful experience.
+            Meet the dedicated team behind hackX 10.0, committed to delivering
+            an exceptional and impactful experience.
           </p>
         </motion.div>
 

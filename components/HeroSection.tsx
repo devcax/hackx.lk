@@ -185,11 +185,17 @@ const GlitchyBadge = () => {
   }, []);
 
   return (
-    <motion.div
+    <motion.button
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.8 }}
       className="relative"
+      onClick={() => {
+        window.open(
+          "https://docs.google.com/forms/d/15ImRCzicX81jjzWuJZeUwMsBB-yTDoAi8rqnEJ3ngaM/edit",
+          "_blank"
+        );
+      }}
     >
       <motion.div
         className="inline-block px-8 md:px-10 py-4 md:py-5 rounded-full bg-gradient-to-r from-cosmic-navy to-cosmic-blue border border-space-gradient-start/40 backdrop-blur-md relative overflow-hidden"
@@ -220,10 +226,10 @@ const GlitchyBadge = () => {
               : "none",
           }}
         >
-          COMING SOON
+          Register Now
         </span>
       </motion.div>
-    </motion.div>
+    </motion.button>
   );
 };
 
@@ -467,7 +473,9 @@ export default function HeroSection() {
       {/* Enhanced Scroll indicator */}
       <motion.button
         onClick={scrollToNext}
-        className="absolute bottom-4 md:bottom-12 left-1/2 -translate-x-1/2 text-space-gradient-start hover:text-white transition-colors duration-300 z-20"
+        // UPDATED: Replaced `left-1/2 -translate-x-1/2` with `left-0 right-0 mx-auto w-fit`
+        // This provides a more stable centering method on mobile browsers.
+        className="absolute bottom-4 md:bottom-12 left-0 right-0 mx-auto w-fit text-space-gradient-start hover:text-white transition-colors duration-300 z-20"
         animate={{
           y: [0, 10, 0],
           scale: [1, 1.1, 1],

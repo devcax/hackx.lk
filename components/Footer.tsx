@@ -25,11 +25,10 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Guidelines", href: "#" },
-
-    { name: "Memories", href: "#" },
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Guidelines", href: "#details" },
+    { name: "Memories", href: "#memories" },
   ];
 
   const contactInfo = [
@@ -45,10 +44,17 @@ export default function Footer() {
     },
     {
       icon: Phone,
-      text: "+94 12 345 6789",
-      href: "tel:+94123456789",
+      text: "+94 11 290 3282",
+      href: "tel:+94112903282",
     },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -100,13 +106,15 @@ export default function Footer() {
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="flex items-center text-gray-400 hover:text-white transition-colors duration-200 group"
+                    <button
+                      onClick={() =>
+                        scrollToSection(link.href.replace("#", ""))
+                      }
+                      className="flex items-center text-gray-400 hover:text-white transition-colors duration-200 group cursor-pointer"
                     >
                       <ChevronRight className="w-4 h-4 mr-2 text-space-gradient-start/70 group-hover:text-space-gradient-start transition-colors" />
                       <span className="text-sm">{link.name}</span>
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -169,14 +177,18 @@ export default function Footer() {
             </motion.div>
           </div>
 
+          {/* --- UPDATED SECTION --- */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="border-t border-space-gradient-start/20 mt-16 pt-6 text-center content-center"
+            className="border-t border-space-gradient-start/20 mt-16 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
           >
-            <p className="text-gray-400 text-sm">
-              © 2025 hackX . All rights reserved.
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              Organized by Department of Industrial Management
+            </p>
+            <p className="text-gray-400 text-sm text-center md:text-right">
+              © 2025 hackX. All rights reserved.
             </p>
           </motion.div>
         </div>
