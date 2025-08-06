@@ -208,10 +208,10 @@ export default function TimelineSection() {
                 <div className="relative bg-cosmic-navy/60 backdrop-blur-md p-4 rounded-full border border-space-gradient-start/20 group-hover:border-space-gradient-start/40 transition-all duration-300">
                   <div className="w-20 h-20 rounded-full bg-cosmic-deep/80 flex items-center justify-center overflow-hidden">
                     <Image
-                      src="/images/logo.webp"
+                      src="/images/hackx-tiny.png"
                       alt="HackX Logo"
                       width={60}
-                      height={30}
+                      height={60}
                       className="object-contain"
                     />
                   </div>
