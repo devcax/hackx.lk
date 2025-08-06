@@ -150,9 +150,7 @@ export default function AwardsSection() {
                       >
                         <div
                           className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center shadow-2xl`}
-                        >
-                          <award.icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-                        </div>
+                        ></div>
                       </motion.div>
 
                       {/* Title section */}

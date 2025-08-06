@@ -25,8 +25,8 @@ const exo = Exo({
 
 export const metadata: Metadata = {
   title: "hackX 10.0",
-  description:
-    "hackX is a renowned inter-university startup challenge organized by IMSSA, University of Kelaniya. Join us for the tenth edition focusing on Sustainable Innovation.",
+  // description:
+  //   "hackX is a renowned inter-university startup challenge organized by IMSSA, University of Kelaniya. Join us for the tenth edition focusing on Sustainable Innovation.",
   keywords:
     "hackX, startup challenge, university, innovation, Sri Lanka, IMSSA, Kelaniya",
   authors: [{ name: "IMSSA - University of Kelaniya" }],
