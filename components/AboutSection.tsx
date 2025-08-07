@@ -148,7 +148,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <motion.button
+            {/* <motion.button
               className="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-space-gradient-start to-space-gradient-end rounded-full font-medium text-slate-800 shadow-lg shadow-space-gradient-start/25 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -156,7 +156,7 @@ export default function AboutSection() {
             >
               Learn More About hackX
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           {/* Enhanced visual element */}
