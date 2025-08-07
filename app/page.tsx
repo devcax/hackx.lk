@@ -40,7 +40,11 @@ const MemoriesSection = dynamic(() => import("@/components/MemoriesSection"), {
   loading: () => <LoadingSpinner />,
 });
 
-const FAQSection = dynamic(() => import("@/components/FAQSection"), {
+// const FAQSection = dynamic(() => import("@/components/FAQSection"), {
+//   loading: () => <LoadingSpinner />,
+// });
+
+const FAQSection = dynamic(() => import("@/components/FAQSectionReplace"), {
   loading: () => <LoadingSpinner />,
 });
 

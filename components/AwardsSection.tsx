@@ -5,15 +5,15 @@ import { Trophy } from "lucide-react";
 import Image from "next/image";
 
 const FirstPlaceIcon = () => (
-  <Image src="/icons/1.ico" alt="1st Place" width={48} height={48} />
+  <Image src="/icons/1.png" alt="1st Place" width={48} height={48} />
 );
 
 const SecondPlaceIcon = () => (
-  <Image src="/icons/2.ico" alt="2nd Place" width={48} height={48} />
+  <Image src="/icons/2.png" alt="2nd Place" width={48} height={48} />
 );
 
 const ThirdPlaceIcon = () => (
-  <Image src="/icons/3.ico" alt="3rd Place" width={48} height={48} />
+  <Image src="/icons/3.png" alt="3rd Place" width={48} height={48} />
 );
 
 export default function AwardsSection() {
@@ -150,7 +150,9 @@ export default function AwardsSection() {
                       >
                         <div
                           className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center shadow-2xl`}
-                        ></div>
+                        >
+                          <award.icon />
+                        </div>
                       </motion.div>
 
                       {/* Title section */}
