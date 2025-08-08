@@ -19,9 +19,12 @@ export default function Footer() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Youtube, href: "#" },
+    { icon: Facebook, href: "https://www.facebook.com/share/18U2EGPHPY/" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/hackx_uok?igsh=MXhvbGM4MGp1YjJpag==",
+    },
+    { icon: Youtube, href: "https://www.youtube.com/@hackX_UoK" },
   ];
 
   const quickLinks = [
@@ -64,7 +67,7 @@ export default function Footer() {
        */}
       <footer
         ref={ref}
-        className="relative bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep border-t border-white/10 pt-20 pb-10 px-4"
+        className="relative bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep border-t border-space-gradient-start/60 pt-20 pb-10 px-4"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -106,6 +109,7 @@ export default function Footer() {
             >
               <h4 className="font-orbitron text-lg font-semibold text-white mb-5 relative pb-2">
                 Quick Links
+                <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-space-gradient-start rounded-full"></span>
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -166,6 +170,7 @@ export default function Footer() {
             >
               <h4 className="font-orbitron text-lg font-semibold text-white mb-5 relative pb-2">
                 Connect With Us
+                <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-space-gradient-start rounded-full"></span>
               </h4>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (

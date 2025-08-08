@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Linkedin, Twitter, Instagram, Mail, Users, Phone } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaCarouselType } from "embla-carousel";
 
@@ -13,10 +14,10 @@ export default function TeamSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "start",
+      align: "center",
       slidesToScroll: 1,
     },
-    []
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -140,15 +141,30 @@ export default function TeamSection() {
 
         {/* Team Carousel */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+            },
+          }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {teamMembers.map((member, index) => (
-                <div
+                <motion.div
                   key={member.name}
+                  variants={{
+                    hidden: { opacity: 0, y: 40, scale: 0.95 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.3333%] p-4"
                 >
                   <div className="group relative bg-cosmic-navy/60 backdrop-blur-sm border border-space-gradient-start/10 rounded-2xl p-6 text-center transition-all duration-300 hover:border-space-gradient-start/20">
@@ -156,7 +172,7 @@ export default function TeamSection() {
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
+                        className="w-full h-full object-cover transition-all duration-500 grayscale-6 group-hover:grayscale-0"
                       />
                       {/* Dark blue tint overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-deep/70 to-cosmic-blue/50 mix-blend-hard-light transition-all duration-500 group-hover:opacity-0" />
@@ -184,13 +200,18 @@ export default function TeamSection() {
                       </a>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Carousel Pagination */}
-          <div className="flex justify-center gap-3 mt-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex justify-center gap-3 mt-8"
+          >
             {scrollSnaps.map((_, index) => (
               <button
                 key={index}
@@ -203,7 +224,7 @@ export default function TeamSection() {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

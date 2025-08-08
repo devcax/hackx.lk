@@ -5,15 +5,15 @@ import { Trophy } from "lucide-react";
 import Image from "next/image";
 
 const FirstPlaceIcon = () => (
-  <Image src="/icons/1.png" alt="1st Place" width={48} height={48} />
+  <Image src="/icons/1.webp" alt="1st Place" width={80} height={80} />
 );
 
 const SecondPlaceIcon = () => (
-  <Image src="/icons/2.png" alt="2nd Place" width={48} height={48} />
+  <Image src="/icons/2.webp" alt="2nd Place" width={60} height={60} />
 );
 
 const ThirdPlaceIcon = () => (
-  <Image src="/icons/3.png" alt="3rd Place" width={48} height={48} />
+  <Image src="/icons/3.webp" alt="3rd Place" width={60} height={60} />
 );
 
 export default function AwardsSection() {
@@ -100,29 +100,41 @@ export default function AwardsSection() {
         </motion.div>
 
         {/* Main Awards Grid */}
-        <div className="grid md:grid-cols-3 gap-12 md:gap-12 items-end mb-20 px-4 sm:px-0">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2, delayChildren: 0.1 },
+            },
+          }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid md:grid-cols-3 gap-12 md:gap-12 items-end mb-20 px-4 sm:px-0"
+        >
           {awards.map((award, index) => {
             const isFirstPlace = award.position === "1st Place";
+            const itemVariants = {
+              hidden: { opacity: 0, y: 50, scale: 0.9 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: isFirstPlace ? 1.08 : 1,
+                transition: { duration: 0.6, ease: "easeOut" },
+              },
+            };
+
             return (
               <motion.div
                 key={award.position}
-                initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                animate={
-                  isInView
-                    ? {
-                        opacity: 1,
-                        y: 0,
-                        scale: isFirstPlace ? 1.08 : 1,
-                      }
-                    : {}
-                }
-                transition={{
-                  duration: 0.8,
-                  delay: animationDelays[index],
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                className="relative"
+                variants={itemVariants}
+                className={`relative ${
+                  isFirstPlace
+                    ? "order-1 md:order-2"
+                    : award.position === "2nd Place"
+                    ? "order-2 md:order-1"
+                    : "order-3"
+                }`}
               >
                 {/* Card */}
                 <motion.div
@@ -185,7 +197,7 @@ export default function AwardsSection() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

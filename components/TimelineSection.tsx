@@ -1,4 +1,5 @@
 "use client";
+
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -6,13 +7,109 @@ import {
   Calendar,
   Lightbulb,
   Trophy,
-  ClipboardList, // Using the cleaner, non-overlapping icon
+  ClipboardList,
   FileUp,
   Presentation,
   DraftingCompass,
   Rocket,
   Terminal,
 } from "lucide-react";
+
+// Define the type for a timeline item to be used in the TimelineItem component
+type TimelineItemData = {
+  phase: string;
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  date: string;
+};
+
+// A new component for individual timeline items to handle their own view-based animations
+const TimelineItem = ({
+  item,
+  index,
+}: {
+  item: TimelineItemData;
+  index: number;
+}) => {
+  const ref = useRef(null);
+  // Animate when the item is 20% into the viewport
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={`flex items-center my-8 md:my-0 flex-row-reverse ${
+        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+      }`}
+    >
+      <div className="w-full md:w-5/12">
+        <div
+          className={`bg-cosmic-navy/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 m-4 hover:border-space-gradient-start/30 transition-all duration-300 ${
+            index % 2 === 0 ? "md:text-right" : "md:text-left"
+          }`}
+        >
+          <div
+            className={`flex items-center gap-3 mb-3 ${
+              index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+            }`}
+          >
+            <span className="text-xs font-semibold text-space-gradient-start">
+              {item.phase}
+            </span>
+            <span className="text-gray-500 text-xs">•</span>
+            <span className="text-gray-500 text-xs">{item.date}</span>
+          </div>
+          <h3 className="font-orbitron text-xl font-bold text-white mb-2">
+            {item.title}
+          </h3>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="hidden md:flex w-2/12 items-center justify-center relative">
+        <div
+          className={`absolute top-1/2 -translate-y-1/2 h-px w-1/2 bg-gradient-to-r from-transparent via-space-gradient-start/30 to-transparent ${
+            index % 2 === 0 ? "left-0" : "right-0"
+          }`}
+        />
+
+        {/* Outer glow effect */}
+        <div className="absolute w-16 h-16 rounded-full bg-space-gradient-start/10 blur-xl" />
+
+        {/* Icon container with better blending */}
+        <div className="relative group">
+          {/* Animated glow on hover */}
+          <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-space-gradient-start/20 to-space-gradient-end/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Main icon container */}
+          <div
+            className="relative w-12 h-12 rounded-full flex items-center justify-center 
+                                      bg-gradient-to-br from-cosmic-navy/40 to-cosmic-deep/40 
+                                      backdrop-blur-sm
+                                      border border-white/5
+                                      shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]
+                                      group-hover:border-white/10
+                                      transition-all duration-300"
+          >
+            {/* Subtle inner glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-space-gradient-start/5 to-transparent" />
+
+            {/* Icon */}
+            <item.icon className="w-6 h-6 text-space-gradient-start/80 group-hover:text-space-gradient-start transition-colors duration-300 relative z-10" />
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden md:block w-5/12" />
+    </motion.div>
+  );
+};
 
 export default function TimelineSection() {
   const ref = useRef(null);
@@ -204,9 +301,23 @@ export default function TimelineSection() {
               className="relative flex justify-center mb-4"
             >
               <div className="relative group">
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-space-gradient-start/40 to-space-gradient-end/40 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative bg-cosmic-navy/60 backdrop-blur-md p-4 rounded-full border border-space-gradient-start/20 group-hover:border-space-gradient-start/40 transition-all duration-300">
-                  <div className="w-20 h-20 rounded-full bg-cosmic-deep/80 flex items-center justify-center overflow-hidden">
+                {/* Outer glow */}
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-space-gradient-start/20 to-space-gradient-end/20 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+
+                {/* Container */}
+                <div
+                  className="relative bg-gradient-to-br from-cosmic-navy/40 to-cosmic-deep/40 
+                                backdrop-blur-md p-4 rounded-full 
+                                border border-white/5 
+                                group-hover:border-white/10 
+                                shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]
+                                transition-all duration-300"
+                >
+                  <div
+                    className="w-20 h-20 rounded-full bg-gradient-to-br from-cosmic-deep/60 to-cosmic-navy/60 
+                                  backdrop-blur-sm flex items-center justify-center overflow-hidden
+                                  border border-white/5"
+                  >
                     <Image
                       src="/images/hackx-tiny.png"
                       alt="HackX Logo"
@@ -220,58 +331,11 @@ export default function TimelineSection() {
             </motion.div>
             <div className="space-y-4 md:space-y-0 pt-16">
               {currentTimeline.data.map((item, index) => (
-                <motion.div
+                <TimelineItem
                   key={`${activeTimeline}-${item.phase}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                  className={`flex items-center my-8 md:my-0 flex-row-reverse ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  <div className="w-full md:w-5/12">
-                    <div
-                      className={`bg-cosmic-navy/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 m-4 hover:border-space-gradient-start/30 transition-all duration-300 ${
-                        index % 2 === 0 ? "md:text-right" : "md:text-left"
-                      }`}
-                    >
-                      <div
-                        className={`flex items-center gap-3 mb-3 ${
-                          index % 2 === 0
-                            ? "md:justify-end"
-                            : "md:justify-start"
-                        }`}
-                      >
-                        <span className="text-xs font-semibold text-space-gradient-start">
-                          {item.phase}
-                        </span>
-                        <span className="text-gray-500 text-xs">•</span>
-                        <span className="text-gray-500 text-xs">
-                          {item.date}
-                        </span>
-                      </div>
-                      <h3 className="font-orbitron text-xl font-bold text-white mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="hidden md:flex w-2/12 items-center justify-center relative">
-                    <div
-                      className={`absolute top-1/2 -translate-y-1/2 h-px w-1/2 bg-space-gradient-start/30 ${
-                        index % 2 === 0 ? "left-0" : "right-0"
-                      }`}
-                    />
-                    <div className="relative w-12 h-12 rounded-lg flex items-center justify-center ring-4 bg-cosmic-navy ring-cosmic-deep">
-                      <item.icon className="w-6 h-6 text-space-gradient-start" />
-                    </div>
-                  </div>
-
-                  <div className="hidden md:block w-5/12" />
-                </motion.div>
+                  item={item}
+                  index={index}
+                />
               ))}
             </div>
           </motion.div>

@@ -37,8 +37,9 @@ export default function CompetitionDetails() {
     {
       icon: Clock,
       title: "Duration",
-      description: "8-week intensive program from registration to Grand Finale",
-      highlight: "8 weeks",
+      description:
+        "12-week intensive program from registration to Grand Finals",
+      highlight: "12 weeks",
     },
     {
       icon: BookOpen,
@@ -54,7 +55,7 @@ export default function CompetitionDetails() {
       category: "Eligibility",
       items: [
         "All team members must be currently enrolled undergraduate students",
-        "Teams must be available for the entire 8-week program duration",
+        "A team must consist of members from the same university, and each member may represent only one team.",
       ],
     },
     {
@@ -97,7 +98,10 @@ export default function CompetitionDetails() {
   };
 
   return (
-    <section ref={ref} className="relative py-24 px-4 overflow-hidden">
+    <section
+      ref={ref}
+      className="relative pb-24 pt-4 md:pt-10 px-4 overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-cosmic-blue/80 via-cosmic-navy/90 to-cosmic-deep" />
       {/* Animated background elements */}
@@ -151,7 +155,7 @@ export default function CompetitionDetails() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
         >
-          {details.map((detail, index) => (
+          {details.map((detail) => (
             <motion.div key={detail.title} variants={itemVariants}>
               <div className="relative h-full bg-cosmic-navy/40 backdrop-blur-md border border-space-gradient-start/10 rounded-xl p-6 hover:border-space-gradient-start/20 transition-all duration-300 group overflow-hidden">
                 {/* Corner glow */}
@@ -182,9 +186,9 @@ export default function CompetitionDetails() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Requirements Section - Takes 2 columns */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="lg:col-span-2"
           >
             <div className="h-full bg-cosmic-navy/40 backdrop-blur-md border border-space-gradient-start/10 rounded-xl p-8 hover:border-space-gradient-start/20 transition-all duration-300">
@@ -194,14 +198,15 @@ export default function CompetitionDetails() {
                 </h3>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {requirements.map((section, index) => (
-                  <motion.div
-                    key={section.category}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  >
+              <motion.div
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.1 } },
+                }}
+                className="grid md:grid-cols-3 gap-8"
+              >
+                {requirements.map((section) => (
+                  <motion.div key={section.category} variants={itemVariants}>
                     <div className="mb-4">
                       <h4 className="text-space-gradient-start font-semibold text-sm uppercase tracking-wider mb-3">
                         {section.category}
@@ -222,15 +227,15 @@ export default function CompetitionDetails() {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
           {/* Download Section - Takes 1 column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="lg:col-span-1"
           >
             <div className="h-full bg-gradient-to-br from-cosmic-navy/60 to-cosmic-blue/40 backdrop-blur-md border border-space-gradient-start/20 rounded-xl p-8 relative overflow-hidden flex flex-col">

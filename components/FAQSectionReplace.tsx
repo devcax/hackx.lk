@@ -7,32 +7,29 @@ const faqData = [
   {
     question: "What is hackX 10.0?",
     answer:
-      "hackX 10.0 is the tenth iteration of the premier inter-university hackathon organized by the IEEE Student Branch of the University of Colombo School of Computing.",
+      "hackX 10.0 marks the tenth historic edition of Sri Lanka’s premier inter-university start up challenge, proudly organized by the Department of Industrial Management, University of Kelaniya, in collaboration with the Ministry of Science and Technology.",
   },
   {
     question: "Who can participate in hackX 10.0?",
     answer:
-      "The competition is open to undergraduate students from all universities across Sri Lanka. Teams should consist of 3-4 members.",
+      "Participation is open to all undergraduate students from both state and private universities across Sri Lanka. Each team must consist of 3–5 members",
   },
   {
-    question: "What is the theme for this year's hackathon?",
+    question: "What is the theme for this year’s start up challenge?",
     answer:
-      "The theme for hackX 10.0 will be announced at the opening ceremony. Participants are encouraged to think creatively and develop innovative solutions to real-world problems.",
+      "This year, hackX 10.0 embraces the theme 'empowering sustainable innovation'. Encouraging visionary young minds to develop technologically advanced, market-ready solutions that are both sustainable and scalable, paving the way for the next generation of impactful startups.",
   },
+
   {
     question: "What are the prizes for the winners?",
     answer:
       "There is a significant prize pool for the top three teams. The 1st place team will receive LKR 150,000, 2nd place will receive LKR 100,000, and 3rd place will receive LKR 75,000. There will also be other awards and swags.",
   },
-  {
-    question: "How long is the competition?",
-    answer:
-      "hackX 10.0 is a 24-hour hackathon where teams will have to develop their solution from scratch.",
-  },
+
   {
     question: "When and where will hackX 10.0 take place?",
     answer:
-      "The event date and venue will be announced soon. Please follow our social media channels and website for the latest updates.",
+      "The confirmed event date and venue will be announced soon. Please follow our social media channels and website for the latest updates.",
   },
 ];
 

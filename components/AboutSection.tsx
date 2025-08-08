@@ -134,7 +134,7 @@ export default function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-gray-400">
-                  Celebrating a decade of fostering innovation with the theme{" "}
+                  Marking ten years of impact with the theme{" "}
                   <span className="text-white font-medium">
                     "Sustainable Innovation"
                   </span>
@@ -210,25 +210,25 @@ export default function AboutSection() {
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-white/10">
                     <div>
-                      <p className="text-2xl sm:text-3xl font-bold text-white">
+                      <p className="text-2xl sm:text-4xl font-bold text-white">
                         5000+
                       </p>
                       <p className="text-sm text-white/60">Participants</p>
                     </div>
                     <div>
-                      <p className="text-2xl sm:text-3xl font-bold text-white">
-                        50+
+                      <p className="text-2xl sm:text-4xl font-bold text-white">
+                        25+
                       </p>
                       <p className="text-sm text-white/60">Universities</p>
                     </div>
-                    <div>
+                    {/* <div>
                       <p className="text-2xl sm:text-3xl font-bold text-white">
-                        20+
+                        25+
                       </p>
-                      <p className="text-sm text-white/60">Startups Launched</p>
-                    </div>
+                      <p className="text-sm text-white/60">Universities</p>
+                    </div> */}
                   </div>
                 </div>
               </motion.div>
