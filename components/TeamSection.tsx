@@ -11,13 +11,90 @@ export default function TeamSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Data first so we can configure carousel options based on it if needed
+  const teamMembers = [
+    {
+      name: "Sajith Liyanagamage",
+      role: "hackX Coordinator",
+      image: "/images/team/sajith.webp",
+      social: {
+        email: "sajith.hackx@gmail.com",
+        phone: "+94740369712",
+      },
+    },
+    {
+      name: "Dinethya Samuduni",
+      role: "hackX Coordinator",
+      image: "/images/team/dinethya.webp",
+      social: {
+        email: "gymdinethya@gmail.com",
+        phone: "+94750233733",
+      },
+    },
+    {
+      name: "Thenul Minjaya",
+      role: "Partnership Coordinator",
+      image: "/images/team/thenul.webp",
+      social: {
+        email: "Tminjaja2003@gmail.com",
+        phone: "+94763631145",
+      },
+    },
+    {
+      name: "Rochelle Anuradha",
+      role: "Partnership Coordinator",
+      image: "/images/team/rochelle.webp",
+      social: {
+        email: "rochelleanuradhaj@gmail.com",
+        phone: "+94760885142",
+      },
+    },
+    {
+      name: "Sewmini Bhagya",
+      role: "Financial Coordinator",
+      image: "/images/team/sewmini.webp",
+      social: {
+        email: "sewminibhagya000@gmail.com",
+        phone: "+9476085142",
+      },
+    },
+    {
+      name: "Dekum Diwanjana",
+      role: "Financial Coordinator",
+      image: "/images/team/dekum.webp",
+      social: {
+        email: "dekumdiwanjana75@gmail.com",
+        phone: "+94773517068",
+      },
+    },
+    {
+      name: "Akindu Samarasinghe ",
+      role: "Marketing Coordinator",
+      image: "/images/team/akindu.webp",
+      social: {
+        email: "akindusamarasinghe21@gmail.com",
+        phone: "+94743133109",
+      },
+    },
+  ];
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "center",
+      align: "start",
       slidesToScroll: 1,
+      containScroll: "keepSnaps", // Changed to keepSnaps to prevent trimming
+      skipSnaps: false,
+      dragFree: false,
+      startIndex: 0, // Ensure consistent starting point
     },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+    [
+      Autoplay({
+        delay: 4000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ]
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -35,80 +112,22 @@ export default function TeamSection() {
   useEffect(() => {
     if (!emblaApi) return;
 
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", () => {
+    const update = () => {
       setScrollSnaps(emblaApi.scrollSnapList());
-      onSelect(emblaApi);
-    });
-    onSelect(emblaApi);
-  }, [emblaApi, onSelect]);
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
 
-  const teamMembers = [
-    {
-      name: "Sajith Liyanagamage",
-      role: "hackX Coordinator",
-      image: "/images/team/sajith.webp",
-      social: {
-        email: "sajith.hackx@gmail.com",
-        phone: "0740369712",
-      },
-    },
-    {
-      name: "Dinethya Samuduni",
-      role: "hackX Coordinator",
-      image: "/images/team/dinethya.webp",
-      social: {
-        email: "gymdinethya@gmail.com",
-        phone: "0750233733",
-      },
-    },
-    {
-      name: "Thenul Minjaya",
-      role: "Partnership Coordinator",
-      image: "/images/team/thenul.webp",
-      social: {
-        email: "Tminjaja2003@gmail.com",
-        phone: "0763631145",
-      },
-    },
-    {
-      name: "Rochelle Anuradha",
-      role: "Partnership Coordinator",
-      image: "/images/team/rochelle.webp",
-      social: {
-        email: "rochelleanuradhaj@gmail.com",
-        phone: "0760885142",
-      },
-    },
-    {
-      name: "Sewmini Bhagya",
-      role: "Financial Coordinator",
-      image: "/images/team/sewmini.webp",
-      social: {
-        email: "sewminibhagya000@gmail.com",
-        phone: "0760885142",
-      },
-    },
-    {
-      name: "Dekum Diwanjana",
-      role: "Financial Coordinator",
-      image: "/images/team/dekum.webp",
-      social: {
-        email: "dekumdiwanjana75@gmail.com",
-        phone: "0773517068",
-      },
-    },
-    {
-      name: "Akindu Samarasinghe ",
-      role: "Marketing Coordinator",
-      image: "/images/team/akindu.webp",
-      social: {
-        email: "akindusamarasinghe21@gmail.com",
-        phone: "0743133109",
-      },
-    },
-  ];
+    update();
+    emblaApi.on("select", update);
+    emblaApi.on("reInit", update);
+
+    return () => {
+      emblaApi.off("select", update);
+      emblaApi.off("reInit", update);
+    };
+  }, [emblaApi]);
+
+  // --- end team data ---
 
   return (
     <section ref={ref} className="relative py-24 px-4 overflow-hidden">
@@ -165,14 +184,14 @@ export default function TeamSection() {
                       transition: { duration: 0.5, ease: "easeOut" },
                     },
                   }}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.3333%] p-4"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 p-4"
                 >
                   <div className="group relative bg-cosmic-navy/60 backdrop-blur-sm border border-space-gradient-start/10 rounded-2xl p-6 text-center transition-all duration-300 hover:border-space-gradient-start/20">
                     <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-cosmic-blue/50 shadow-inner-lg shadow-cosmic-deep">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover transition-all duration-500 grayscale-6 group-hover:grayscale-0"
+                        className="w-full h-full object-cover transition-all duration-500 grayscale-10 group-hover:grayscale-0"
                       />
                       {/* Dark blue tint overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-cosmic-deep/70 to-cosmic-blue/50 mix-blend-hard-light transition-all duration-500 group-hover:opacity-0" />
@@ -212,7 +231,7 @@ export default function TeamSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex justify-center gap-3 mt-8"
           >
-            {scrollSnaps.map((_, index) => (
+            {Array.from({ length: teamMembers.length }, (_, index) => (
               <button
                 key={index}
                 onClick={() => scrollTo(index)}

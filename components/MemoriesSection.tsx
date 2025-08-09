@@ -16,10 +16,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import type { Swiper as SwiperType } from "swiper";
 
 export default function MemoriesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const swiperRef = useRef<SwiperType | null>(null);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const memories = [
@@ -68,11 +70,15 @@ export default function MemoriesSection() {
   const openLightbox = (image: string) => {
     setLightboxImage(image);
     document.body.style.overflow = "hidden";
+    // Pause autoplay when lightbox is open
+    swiperRef.current?.autoplay?.stop?.();
   };
 
   const closeLightbox = () => {
     setLightboxImage(null);
     document.body.style.overflow = "unset";
+    // Resume autoplay when lightbox is closed
+    swiperRef.current?.autoplay?.start?.();
   };
 
   return (
@@ -117,6 +123,9 @@ export default function MemoriesSection() {
             centeredSlides={true}
             loop={true}
             slidesPerView="auto"
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
             coverflowEffect={{
               rotate: 20,
               stretch: 0,
